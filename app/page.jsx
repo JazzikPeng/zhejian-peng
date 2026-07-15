@@ -213,8 +213,8 @@ export default function Home() {
 
   const isDark = theme === "dark";
   const ambientColor = isDark
-    ? "rgba(147, 51, 234, 0.10)"
-    : "rgba(99, 102, 241, 0.12)";
+    ? "rgba(100, 140, 255, 0.07)"
+    : "rgba(99, 102, 241, 0.10)";
 
   return (
     <div
