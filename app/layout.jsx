@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Zhejian(Jazzik) Peng | AI Researcher",
+  title: "Zhejian(Jazzik) Peng | SpaceXAI",
   description:
-    "AI Researcher & Physics Enthusiast. Bridging the gap between physical laws and machine intelligence.",
+    "Large-scale recommendation & generative AI engineering at SpaceXAI — from research to production systems across models, infra, and product loops.",
 };
 
 const themeInitScript = `
