@@ -22,3 +22,7 @@ npm run dev
 Production: https://zhejian-peng.vercel.app
 
 Pushes to `main` deploy automatically via Vercel.
+
+## Repo
+
+Source of truth for the live site. Vercel project: `profile`.
