@@ -240,10 +240,10 @@ export default function Home() {
               Zhejian(Jazzik){" "}
               <span className="text-neutral-400 dark:text-neutral-600">Peng</span>
             </h1>
-            <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-xl leading-relaxed">
-              Large-scale recsys & generative AI engineering at{" "}
+            <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-lg leading-relaxed">
+              Recsys & generative AI at{" "}
               <strong className="font-semibold text-neutral-800 dark:text-neutral-200">SpaceXAI</strong>
-              — from research to production systems across models, infra, and product loops.
+              {" — "}research to production.
             </p>
           </div>
           <div className="flex items-center gap-3 flex-wrap">
@@ -258,53 +258,57 @@ export default function Home() {
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[180px]">
-          {/* 1. Bio — aligned with grok-presentation About Me */}
-          <Card className="md:col-span-2 lg:col-span-2 row-span-2 flex flex-col justify-between bg-gradient-to-br from-white to-neutral-50 dark:from-neutral-900 dark:to-neutral-900">
-            <div className="absolute top-0 right-0 p-6 opacity-10 text-neutral-900 dark:text-white">
-              <Brain size={120} />
+          {/* 1. Bio — compact */}
+          <Card className="md:col-span-2 lg:col-span-2 row-span-2 flex flex-col overflow-hidden bg-gradient-to-br from-white to-neutral-50 dark:from-neutral-900 dark:to-neutral-900">
+            <div className="absolute top-0 right-0 p-5 opacity-[0.08] text-neutral-900 dark:text-white pointer-events-none">
+              <Brain size={100} />
             </div>
-            <div className="relative z-10 min-h-0 flex flex-col">
-              <div className="w-14 h-14 bg-neutral-100 dark:bg-neutral-800 rounded-2xl mb-4 flex items-center justify-center border border-neutral-200 dark:border-white/5 shrink-0">
-                <span className="text-2xl">🚀</span>
+            <div className="relative z-10 flex h-full flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 bg-neutral-100 dark:bg-neutral-800 rounded-xl flex items-center justify-center border border-neutral-200 dark:border-white/5 shrink-0">
+                  <span className="text-xl">🚀</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-neutral-900 dark:text-white leading-tight">
+                    About Me
+                  </h3>
+                  <p className="text-xs text-neutral-500 dark:text-neutral-500">
+                    Production AI · RecSys · Infra
+                  </p>
+                </div>
               </div>
-              <h3 className="text-2xl font-semibold text-neutral-900 dark:text-white mb-2">
-                About Me
-              </h3>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-3">
-                Building <strong className="text-neutral-900 dark:text-neutral-200">production-grade</strong>{" "}
-                recommendation & generative AI systems — models, infra, and full product loops.
-              </p>
-              <ul className="space-y-1.5 text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-snug">
-                <li>
-                  <span className="font-semibold text-violet-600 dark:text-violet-400">SpaceXAI · Phoenix</span>
-                  {" — "}full-sequence transformer recsys (model + infra).
-                </li>
-                <li>
-                  <span className="font-semibold text-neutral-800 dark:text-neutral-200">Snap · Ads</span>
-                  {" — "}LLM product understanding; patent: In-Context Ads.
-                </li>
-                <li>
-                  <span className="font-semibold text-neutral-800 dark:text-neutral-200">TikTok · Recsys</span>
-                  {" — "}interactive rec; ~1M QPS multi-DC systems; multimodal CLIP.
-                </li>
-                <li>
-                  <span className="font-semibold text-neutral-800 dark:text-neutral-200">Walmart · Forecast</span>
-                  {" — "}patent: Fresh Inventory (DL + convex opt).
-                </li>
-              </ul>
-              <p className="mt-3 text-[11px] sm:text-xs text-neutral-500 dark:text-neutral-500 leading-relaxed">
-                2 US patents · Reviewer (NeurIPS, ICML, CVPR) · Speaker (Ai4, MetaCon) · UIUC · Georgia Tech · Stanford
-              </p>
-            </div>
-            <div className="flex gap-2 mt-3 flex-wrap shrink-0">
-              {["RecSys", "LLMs", "Distributed Systems", "2 Patents"].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 rounded-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/5 text-xs text-neutral-700 dark:text-neutral-300"
-                >
-                  {tag}
-                </span>
-              ))}
+
+              <div className="grid grid-cols-2 gap-2 flex-1 content-start">
+                {[
+                  { org: "SpaceXAI", role: "Phoenix recsys" },
+                  { org: "Snap", role: "Ads · LLM · Patent" },
+                  { org: "TikTok", role: "Recsys · 1M QPS" },
+                  { org: "Walmart", role: "Forecast · Patent" },
+                ].map((item) => (
+                  <div
+                    key={item.org}
+                    className="rounded-xl border border-neutral-200/80 dark:border-white/10 bg-neutral-50/80 dark:bg-white/[0.03] px-3 py-2.5"
+                  >
+                    <div className="text-sm font-semibold text-neutral-900 dark:text-white">
+                      {item.org}
+                    </div>
+                    <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5 truncate">
+                      {item.role}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex gap-1.5 flex-wrap pt-0.5">
+                {["2 Patents", "NeurIPS / ICML", "UIUC · GT · Stanford"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/5 text-[11px] text-neutral-600 dark:text-neutral-400"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </Card>
 
