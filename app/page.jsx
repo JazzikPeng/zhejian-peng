@@ -20,6 +20,7 @@ import {
   Microscope,
   BookOpen,
 } from "lucide-react";
+import SpaceBackground from "./SpaceBackground";
 
 // --- Mock Backend / Service Layer ---
 const API_SERVICES = {
@@ -212,23 +213,26 @@ export default function Home() {
 
   const isDark = theme === "dark";
   const ambientColor = isDark
-    ? "rgba(120, 50, 255, 0.06)"
-    : "rgba(124, 58, 237, 0.10)";
+    ? "rgba(147, 51, 234, 0.10)"
+    : "rgba(99, 102, 241, 0.12)";
 
   return (
     <div
-      className="min-h-screen bg-neutral-50 dark:bg-black text-neutral-800 dark:text-neutral-200 font-sans selection:bg-purple-500/30 selection:text-purple-700 dark:selection:text-purple-200 pb-20 transition-colors duration-300"
+      className="relative min-h-screen bg-transparent text-neutral-800 dark:text-neutral-200 font-sans selection:bg-purple-500/30 selection:text-purple-700 dark:selection:text-purple-200 pb-20 transition-colors duration-300"
       onMouseMove={handleMouseMove}
     >
-      {/* Ambient Background */}
+      {/* Space backdrop: nebula + starfield + meteors */}
+      <SpaceBackground mousePos={mousePos} theme={theme} />
+
+      {/* Cursor spotlight */}
       <div
-        className="fixed inset-0 pointer-events-none transition-opacity duration-500"
+        className="fixed inset-0 pointer-events-none z-[1] transition-opacity duration-500"
         style={{
-          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, ${ambientColor}, transparent 40%)`,
+          background: `radial-gradient(550px circle at ${mousePos.x}px ${mousePos.y}px, ${ambientColor}, transparent 42%)`,
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         {/* Header */}
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
